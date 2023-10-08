@@ -26,7 +26,30 @@ const app = Vue.createApp({
 			return { width: this.buddyLove + '%' };
 		},
 	},
+	watch: {
+		killaLove(value) {
+			if (value >= 100 && this.buddyLove >= 100) {
+				this.winner = 'draw';
+			} else if (value >= 100) {
+				this.winner = 'killa';
+			}
+		},
+		buddyLove(value) {
+			if (value >= 100 && this.killaLove >= 100) {
+				this.winner = 'draw';
+			} else if (value >= 100) {
+				this.winner = 'buddy';
+			}
+		},
+	},
 	methods: {
+		startGame() {
+			this.killaLove = 0;
+			this.buddyLove = 0;
+			this.winner = null;
+			this.logMessages = [];
+			this.surrender = false;
+		},
 		kissKilla() {
 			const kissValue = getRandomValue(5, 12);
 			this.killaLove += kissValue;

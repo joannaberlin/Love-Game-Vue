@@ -31,7 +31,14 @@
 					<div class="lovebar__value" :style="buddyBarStyles"></div>
 				</div>
 			</section>
-			<section id="controls" class="container">
+			<section class="container" v-if="winner">
+				<h2>Game Over!</h2>
+				<h3 v-if="winner === 'killa'">Killa got more love today!</h3>
+				<h3 v-else-if="winner === 'buddy'">Buddy got more love today!</h3>
+				<h3 v-else>Killa and Buddy got same amount of love today!</h3>
+				<button @click="startGame" class="start__btn">Start New Game</button>
+			</section>
+			<section id="controls" class="container" v-else>
 				<button @click="kissKilla" :disabled="surrender">Kiss killa</button>
 				<button @click="kissBuddy" :disabled="surrender">Kiss buddy</button>
 				<button @click="kissRandom" :disabled="surrender">Kiss random</button>
@@ -43,7 +50,13 @@
 				<h2>Love battle log</h2>
 				<ul></ul>
 			</section>
-			<div id="hearts" v-if="surrender">
+			<div class="hearts first__container" v-if="surrender">
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+			</div>
+			<div class="hearts second__container" v-if="surrender">
 				<div class="heart__anim"></div>
 				<div class="heart__anim"></div>
 				<div class="heart__anim"></div>
