@@ -1,0 +1,179 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Barlow', sans-serif;
+}
+
+body {
+	margin: 0;
+	color: rgb(70, 70, 70);
+}
+
+h1 {
+	font-family: 'Young Serif', serif;
+}
+
+h2 {
+	text-transform: capitalize;
+}
+
+header {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
+	padding: 0.5rem;
+	background-color: #ff548a;
+	color: white;
+	text-align: center;
+	margin-bottom: 2rem;
+	text-transform: capitalize;
+}
+
+section {
+	width: 90%;
+	max-width: 40rem;
+	margin: auto;
+	position: relative;
+	z-index: 1;
+}
+
+button {
+	font: inherit;
+	text-transform: capitalize;
+	font-weight: 600;
+	border: 1px solid rgb(70, 70, 70);
+	background-color: rgb(70, 70, 70);
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 10px;
+	margin: 0.5rem;
+	width: 12rem;
+	cursor: pointer;
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover,
+button:active {
+	background-color: rgb(124, 115, 121);
+	border-color: rgb(124, 115, 121);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+}
+
+.heart {
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	position: relative;
+	height: 30px;
+	width: 30px;
+	top: 10px;
+}
+
+.lovebar {
+	width: 100%;
+	height: 40px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+	border-radius: 10px;
+	margin: 1rem 0;
+	background: #fde5e5;
+}
+
+.lovebar__value {
+	background-color: #d50303;
+	border-radius: 10px;
+	width: 0;
+	height: 100%;
+}
+
+.container {
+	text-align: center;
+	padding: 0.5rem;
+	margin: 1rem auto;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+	border-radius: 12px;
+}
+
+#hearts {
+	bottom: 0%;
+	left: 30%;
+	width: 40%;
+	min-width: 100px;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	z-index: 100;
+}
+
+.heart__anim {
+	background-color: #f50303;
+	position: absolute;
+	height: 50%;
+	min-height: 15px;
+	width: 50%;
+	min-width: 15px;
+	opacity: 0;
+	-webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+	mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: bottom;
+	mask-position: bottom;
+	animation: floating-heart 10s infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+}
+
+.heart__anim:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.heart__anim:nth-child(2) {
+	animation-delay: 1s;
+}
+
+.heart__anim:nth-child(3) {
+	animation-delay: 2s;
+}
+
+.heart__anim:nth-child(4) {
+	animation-delay: 3s;
+}
+
+@keyframes floating-heart {
+	0% {
+		opacity: 0;
+		bottom: 0%;
+		left: 0%;
+	}
+	10% {
+		opacity: 1;
+		bottom: 20%;
+		left: 70%;
+	}
+	20% {
+		bottom: 40%;
+		left: 10%;
+	}
+	30% {
+		bottom: 60%;
+		left: 50%;
+	}
+	40% {
+		opacity: 1;
+		bottom: 80%;
+		left: 5%;
+	}
+	48% {
+		opacity: 0;
+		bottom: 100%;
+		left: 60%;
+	}
+	100% {
+		opacity: 0;
+		bottom: 100%;
+		left: 90%;
+	}
+}

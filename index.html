@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Love Me Better Vue</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow&family=Young+Serif&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/vue@next" defer></script>
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<h1>Love me better</h1>
+		</header>
+		<div id="game">
+			<section id="killa" class="container">
+				<h2>Killa <span class="heart"></span> Love</h2>
+				<div class="lovebar">
+					<div class="lovebar__value" :style="killaBarStyles"></div>
+				</div>
+			</section>
+			<section id="buddy" class="container">
+				<h2>Buddy <span class="heart"></span> Love</h2>
+				<div class="lovebar">
+					<div class="lovebar__value" :style="buddyBarStyles"></div>
+				</div>
+			</section>
+			<section id="controls" class="container">
+				<button @click="kissKilla" :disabled="surrender">Kiss killa</button>
+				<button @click="kissBuddy" :disabled="surrender">Kiss buddy</button>
+				<button @click="kissRandom" :disabled="surrender">Kiss random</button>
+				<button @click="surrenderToLove" :disabled="surrender">
+					Surrender to love
+				</button>
+			</section>
+			<section id="log" class="container">
+				<h2>Love battle log</h2>
+				<ul></ul>
+			</section>
+			<div id="hearts" v-if="surrender">
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+				<div class="heart__anim"></div>
+			</div>
+		</div>
+	</body>
+</html>
