@@ -48,7 +48,17 @@
 			</section>
 			<section id="log" class="container">
 				<h2>Love battle log</h2>
-				<ul></ul>
+				<ul>
+					<li v-for="logMessage in logMessages">
+						<span
+							:class="{'log--killa': logMessage.actionBy === 'killa', 'log--buddy': logMessage.actionBy === 'buddy'}"
+							>{{ logMessage.actionBy === 'killa' ? 'Killa' : 'Buddy'}}</span
+						>
+						got
+						<span class="love--highlight">{{ logMessage.actionValue }}</span>
+						points of <span class="love--highlight">Love</span>
+					</li>
+				</ul>
 			</section>
 			<div class="hearts first__container" v-if="surrender">
 				<div class="heart__anim"></div>
